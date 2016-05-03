@@ -83,9 +83,9 @@
 #pragma mark - PLDLinkBankMFAContainerViewControllerDelegate
 
 - (void)mfaContainerViewController:(PLDLinkBankMFAContainerViewController *)viewController
-       didFinishWithAuthentication:(PLDAuthentication *)authentication {
+       didFinishWithAuthentication:(PLDAuthentication *)authentication andResponse:response {
   [_linkDelegate linkNavigationContoller:self
-                didFinishWithAccessToken:authentication.accessToken];
+                didFinishWithAccessToken:authentication.accessToken andResponse:(id)response];
 }
 
 #pragma mark - UINavigationControllerDelegate

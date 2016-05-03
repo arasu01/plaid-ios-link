@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import <plaid_ios_sdk/PLDDefines.h>
+#import <plaid-ios-sdk/PLDDefines.h>
 
 @class PLDAuthentication;
 @class PLDLinkBankMFALoginViewController;
@@ -16,7 +16,7 @@
 @protocol PLDLinkBankLoginViewControllerDelegate <NSObject>
 
 - (void)loginViewController:(PLDLinkBankMFALoginViewController *)loginViewController
-    didFinishWithAuthentication:(PLDAuthentication *)authentication;
+    didFinishWithAuthentication:(PLDAuthentication *)authentication andResponse:(id)response;
 
 @end
 

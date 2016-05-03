@@ -14,7 +14,7 @@
 @protocol PLDLinkBankMFAViewControllerDelegate <NSObject>
 
 - (void)bankMFAViewController:(PLDLinkBankMFAViewController *)viewController
-    didFinishWithAuthentication:(PLDAuthentication *)authentication;
+    didFinishWithAuthentication:(PLDAuthentication *)authentication andResponse:(id)response;
 
 @end
 

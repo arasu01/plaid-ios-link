@@ -131,25 +131,25 @@ static const CGFloat kKeyboardPadding = 8.0f;
 #pragma mark - PLDLinkBankLoginViewControllerDelegate
 
 - (void)loginViewController:(PLDLinkBankMFALoginViewController *)loginViewController
-    didFinishWithAuthentication:(PLDAuthentication *)authentication {
+    didFinishWithAuthentication:(PLDAuthentication *)authentication andResponse:(id)response {
   if (authentication.mfa) {
     [self displayNextMFAStepWithAuthentication:authentication];
     return;
   }
 
-  [_delegate mfaContainerViewController:self didFinishWithAuthentication:authentication];
+  [_delegate mfaContainerViewController:self didFinishWithAuthentication:authentication andResponse:response];
 }
 
 #pragma mark - PLDLinkBankMFAViewControllerDelegate
 
 - (void)bankMFAViewController:(PLDLinkBankMFAViewController *)viewController
-  didFinishWithAuthentication:(PLDAuthentication *)authentication {
+  didFinishWithAuthentication:(PLDAuthentication *)authentication andResponse:(id)response {
   if (authentication.mfa) {
     [self displayNextMFAStepWithAuthentication:authentication];
     return;
   }
 
-  [_delegate mfaContainerViewController:self didFinishWithAuthentication:authentication];
+  [_delegate mfaContainerViewController:self didFinishWithAuthentication:authentication andResponse:response];
 }
 
 #pragma mark - UIScrollViewDelegate

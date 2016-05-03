@@ -64,6 +64,7 @@
                                        password:_view.passwordTextField.text
                                             pin:_view.pinTextField.text
                                            type:_institution.type
+                                 includeAccount:YES
                                         options:options
                                      completion:^(PLDAuthentication *authentication, id response, NSError *error) {
     if (error && weakSelf) {
@@ -73,7 +74,7 @@
       [weakView.submitButton hideLoadingState];
       return;
     }
-    [weakSelf.delegate loginViewController:self didFinishWithAuthentication:authentication];
+    [weakSelf.delegate loginViewController:self didFinishWithAuthentication:authentication andResponse:response];
   }];
 }
 
