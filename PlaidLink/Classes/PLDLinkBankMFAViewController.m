@@ -42,6 +42,7 @@
   [[Plaid sharedInstance] stepLinkUserForProduct:_authentication.product
                                      publicToken:_authentication.accessToken
                                      mfaResponse:response
+                                  includeAccount:YES
                                          options:options
                                       completion:^(PLDAuthentication *authentication, id response, NSError *error) {
     if (error) {
@@ -51,7 +52,7 @@
 
     completion(nil);
     [_delegate bankMFAViewController:self
-         didFinishWithAuthentication:authentication];
+         didFinishWithAuthentication:authentication andResponse:response];
   }];
 }
 

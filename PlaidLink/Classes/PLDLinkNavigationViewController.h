@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import <plaid_ios_sdk/PLDDefines.h>
+#import <plaid-ios-sdk/PLDDefines.h>
 
 @class PLDLinkNavigationViewController;
 
@@ -23,7 +23,7 @@
  @param accessToken A valid access token for a user to access the Plaid system.
  */
 - (void)linkNavigationContoller:(PLDLinkNavigationViewController *)navigationController
-       didFinishWithAccessToken:(NSString *)accessToken;
+       didFinishWithAccessToken:(NSString *)accessToken andResponse:(id)response;
 
 /**
  Called when a user taps the "I don't see my bank" cell.
