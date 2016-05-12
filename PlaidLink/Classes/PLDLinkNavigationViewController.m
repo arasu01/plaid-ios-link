@@ -42,7 +42,9 @@
     _animator = [[PLDLinkSelectionToLoginAnimator alloc] init];
 
     self.delegate = self;
-
+    
+    _options = [[NSDictionary alloc] init];
+    
     UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
     _bgBlurView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
     [self.view insertSubview:_bgBlurView atIndex:0];
@@ -74,6 +76,7 @@
       [[PLDLinkBankMFAContainerViewController alloc] initWithInstitution:institution
                                                                  product:product];
   nextViewController.delegate = self;
+  nextViewController.options = _options;
   [self pushViewController:nextViewController animated:YES];
 }
 
