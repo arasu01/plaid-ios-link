@@ -37,8 +37,10 @@
   _view.isPinRequired = [_institution.type isEqualToString:@"usaa"];
   
   // Update the place holder with the institution credentials response parameter value.
-  _view.usernameTextField.placeholder = _institution.userName;
-  _view.passwordTextField.placeholder = _institution.password;
+  if(_institution.userName != nil && _institution.password != nil) {
+    _view.usernameTextField.placeholder = _institution.userName;
+    _view.passwordTextField.placeholder = _institution.password;
+  }
   self.view = _view;
 }
 
