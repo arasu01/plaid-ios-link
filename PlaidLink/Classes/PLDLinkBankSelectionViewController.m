@@ -57,6 +57,17 @@
 
   [[Plaid sharedInstance] getInstitutionsWithCompletion:^(id response, NSError *error) {
     NSMutableArray *institutions = [NSMutableArray arrayWithArray:response];
+      
+      [institutions filterUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(PLDInstitution *institution,
+                                                                               NSDictionary *bindings) {
+          return [institution isProductAvailable:_product];
+      }]];
+      if (_product == PlaidProductConnect) {
+          [institutions addObject:@"searchCell"];
+      } else {
+          [institutions addObject:@"bankNotListedCell"];
+      }
+      
     _bankSelectionView.institutions = institutions;
   }];
 }
