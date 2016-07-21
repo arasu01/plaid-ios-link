@@ -67,14 +67,9 @@
 
 - (void)bankSelectionViewController:(PLDLinkBankSelectionViewController *)viewController
            didFinishWithInstitution:(PLDInstitution *)institution {
-    PlaidProduct *product = _product;
-    if (![institution.products containsObject:NSStringFromPlaidProduct(_product)]) {
-        product = PlaidProductAuth;
-    }
-    
   PLDLinkBankMFAContainerViewController *nextViewController =
       [[PLDLinkBankMFAContainerViewController alloc] initWithInstitution:institution
-                                                                 product:product];
+                                                                 product:_product];
   nextViewController.delegate = self;
   nextViewController.options = _options;
   [self pushViewController:nextViewController animated:YES];
